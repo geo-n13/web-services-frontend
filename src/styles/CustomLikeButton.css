@@ -1,0 +1,25 @@
+.custom-like-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-like-button:hover {
+    background-color: white;
+    color: red;
+}
+
+.custom-like-button.liked {
+    background-color: white;
+    color: red;
+}
+
+.custom-like-button.liked:hover {
+    background-color: red;
+    color: white;
+}
