@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import Modal from 'react-modal';
 import Home from './pages/Home'
-import Movie from './pages/Movie';
+import MovieDetailsPage from './pages/MovieDetailsPage';
 
 Modal.setAppElement('#root');
 
@@ -13,7 +13,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route exact path="/" element={<Home />}  />
-                <Route path="/movie" element={<Movie />} />
+                <Route path="/films/:filmId" element={<MovieDetailsPage />} />
             </Routes>
         </BrowserRouter>
     );

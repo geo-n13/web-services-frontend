@@ -17,6 +17,10 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.movie-card:hover {
+    background-color: #dddddd;
+}
+
 .movie-title {
     text-transform: uppercase;
     height: 60px;
