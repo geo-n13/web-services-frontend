@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import '../styles/CommentForm.css';
 
-const CommentForm = ({ onCommentSubmit }) => {
+const CommentForm = ({ filmId, onCommentSubmit }) => {
     const [comment, setComment] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onCommentSubmit(comment); // Appeler la fonction de soumission du commentaire avec le contenu du commentaire
-        setComment('');
+        if (comment.trim() !== '') {
+            onCommentSubmit(filmId, comment.trim()); // Appeler la fonction de soumission du commentaire avec l'ID du film et le contenu du commentaire
+            setComment('');
+        }
     };
 
     const handleChange = (event) => {
@@ -16,7 +18,11 @@ const CommentForm = ({ onCommentSubmit }) => {
 
     return (
         <form onSubmit={handleSubmit} className="comment-section">
-            <textarea value={comment} onChange={handleChange} placeholder="Ajouter un commentaire..." />
+            <textarea
+                value={comment}
+                onChange={handleChange}
+                placeholder="Ajouter un commentaire..."
+            />
             <button type="submit">Envoyer</button>
         </form>
     );

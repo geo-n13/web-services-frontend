@@ -26,9 +26,10 @@ const MovieDetailsPage = () => {
         fetchFilmDetails();
     }, [filmId]);
 
-    const handleCommentSubmit = (comment) => {
+    const handleCommentSubmit = (filmId, comment) => {
         const newComment = {
             id: comments.length + 1,
+            filmId: filmId,
             user: "Utilisateur",
             content: comment,
             timestamp: new Date().toISOString()
@@ -53,9 +54,9 @@ const MovieDetailsPage = () => {
                         </div>
                         <div className="movie-details-interactions">
                             <StarRating filmId={filmDetails.id} />
-                            <CustomLikeButton label={null} filmId={filmDetails.id} />
+                            <CustomLikeButton label="J'aime" filmId={filmDetails.id} />
                         </div>
-                        <CommentForm onCommentSubmit={handleCommentSubmit} />
+                        <CommentForm filmId={filmId} onCommentSubmit={handleCommentSubmit} />
                     </div>
                 )}
                 <CommentList comments={comments} />
