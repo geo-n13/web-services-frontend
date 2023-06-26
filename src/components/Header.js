@@ -5,6 +5,8 @@ import { faRightToBracket, faIdCard, faHeart, faCircleXmark, faRightFromBracket 
 import CustomButton from './CustomButton';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
+import BlacklistedMovieListManager from './BlacklistedMovieListManager';
+import LikedMovieListManager from './LikedMovieListManager';
 
 const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -46,8 +48,12 @@ const Header = () => {
                 {isLoggedIn ? (
                     <>
                         <p className="username">Bonjour, {username}</p>
-                        <CustomButton label="Likés" onClick={handleLikedButtonClick} icon={faHeart} isModalButton={false} />
-                        <CustomButton label="BlackList" onClick={handleBlacklistButtonClick} icon={faCircleXmark} isModalButton={false} />
+                        <CustomButton label="Likés" onClick={handleLikedButtonClick} icon={faHeart} isModalButton={true}>
+                            <LikedMovieListManager/>
+                        </CustomButton>
+                        <CustomButton label="BlackList" onClick={handleBlacklistButtonClick} icon={faCircleXmark} isModalButton={true}>
+                            <BlacklistedMovieListManager/>
+                        </CustomButton>
                         <CustomButton label="Déconnexion" onClick={handleLogoutButtonClick}  icon={faRightFromBracket} isModalButton={false} />
                     </>
                 ) : (
