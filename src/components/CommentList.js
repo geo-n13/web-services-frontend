@@ -1,5 +1,5 @@
 import React from 'react';
-import data_comments from '../data/data_comments';
+// import data_comments from '../data/data_comments';
 
 const CommentList = ({ comments }) => {
     const formatDate = (timestamp) => {
