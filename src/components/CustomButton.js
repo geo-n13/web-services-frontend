@@ -6,11 +6,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const CustomButton = ({ label, onClick, icon, isModalButton, children }) => {
     const [modalOpen, setModalOpen] = useState(false);
 
-    const handleButtonClick = () => {
+    const handleButtonClick = (e) => {
+        e.preventDefault();
+
         if (isModalButton) {
             setModalOpen(true);
         } else {
-            onClick();
+            if (onClick) {
+                onClick(e); // Appeler onClick en passant l'événement e en paramètre
+            }
         }
     };
 
