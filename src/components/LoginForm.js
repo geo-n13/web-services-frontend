@@ -3,14 +3,14 @@ import '../styles/Form.css';
 import CustomButton from './CustomButton';
 
 const LoginForm = ({ onLogin }) => {
-    const [username, setUsername] = useState('');
+    const [identifier, setIdentifier] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Appeler la fonction onLogin avec les informations de connexion
-        onLogin(username, password);
-        setUsername('');
+        onLogin(identifier, password);
+        setIdentifier('');
         setPassword('');
     };
 
@@ -21,14 +21,14 @@ const LoginForm = ({ onLogin }) => {
                 <input
                     type="text"
                     className="form-input"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Email ou nom d'utilisateur"
+                    value={identifier}
+                    onChange={(e) => setIdentifier(e.target.value)}
                 />
                 <input
                     type="password"
                     className="form-input"
-                    placeholder="Password"
+                    placeholder="Mot de passe"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />

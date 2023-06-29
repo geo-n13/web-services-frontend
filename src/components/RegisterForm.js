@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import '../styles/Form.css';
 import CustomButton from './CustomButton';
 
@@ -10,27 +9,10 @@ const RegisterForm = ({ onRegister }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        try {
-            const response = await axios.post('http://localhost:8000/api/register', {
-                username,
-                email,
-                password,
-            });
-
-            // Gérer la réponse du serveur en cas de succès
-
-            console.log("L'utilisateur a été inscrit avec succès.");
-
-            // Appeler la prop onRegister avec les données nécessaires
-            if (onRegister) {
-                onRegister(username, email, password);
-            }
-        } catch (error) {
-            // Gérer les erreurs de la requête
-
-            console.error("Une erreur s'est produite lors de l'inscription de l'utilisateur:", error);
-        }
+        onRegister(username, email, password);
+        setUsername('');
+        setEmail('');
+        setPassword('');
     };
 
 

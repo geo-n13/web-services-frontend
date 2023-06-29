@@ -8,7 +8,7 @@ const LikedMovieListManager = () => {
 
     return (
         <div className="manager-list">
-            <p className="manager-title">Titre likés :</p>
+            <p className="manager-title">Titres likés :</p>
             {data_liked_list.map((movie) => (
                 <div key={movie.id} className="manager-list-item">
                     <div className="manager-infos">
